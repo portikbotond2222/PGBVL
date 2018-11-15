@@ -40,7 +40,12 @@ public class LoginActivity extends AppCompatActivity {
         regiszterBtn= (Button) findViewById(R.id.button2);
         myprogressbar =  (ProgressBar) findViewById(R.id.progressBar);
 
-
+        regiszterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectToReg();
+            }
+        });
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +87,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void redirectToMain() {
         Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(mainIntent);
+        finish();
+    }
+    private void redirectToReg() {
+        Intent mainIntent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(mainIntent);
         finish();
     }
