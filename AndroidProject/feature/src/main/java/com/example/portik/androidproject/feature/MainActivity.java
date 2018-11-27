@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private Button registerBtn;
     private Button loginBtn;
     private Button logoutBtn;
+    private Button phoneAuthBtn;
     private FirebaseAuth myAuth;
 
     @Override
@@ -26,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         registerBtn = (Button) findViewById(R.id.register_btn);
         loginBtn = (Button) findViewById(R.id.login_btn);
         logoutBtn = (Button) findViewById(R.id.logout_btn);
+        phoneAuthBtn = (Button) findViewById(R.id.phoneAuthButton);
+        phoneAuthBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectToRPhoneAuth();
+            }
+        });
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,6 +85,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void redirectToMain() {
         Intent mainIntent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(mainIntent);
+        finish();
+    }
+    private void redirectToRPhoneAuth(){
+        Intent mainIntent = new Intent(MainActivity.this, PhoneAutentification.class);
         startActivity(mainIntent);
         finish();
     }
