@@ -1,4 +1,4 @@
-package com.example.portik.androidproject.feature;
+package com.example.portik.androidproject.app;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -24,6 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginBtn;
     private Button regiszterBtn;
     private ProgressBar myprogressbar;
+    private Button phoneAuthBtn;
+
 
     private FirebaseAuth myAuth;
 
@@ -39,6 +41,14 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.button);
         regiszterBtn= (Button) findViewById(R.id.button2);
         myprogressbar =  (ProgressBar) findViewById(R.id.progressBar);
+
+        phoneAuthBtn = (Button) findViewById(R.id.phoneAuthButton);
+        phoneAuthBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectToRPhoneAuth();
+            }
+        });
 
         regiszterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +102,11 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void redirectToReg() {
         Intent mainIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+        startActivity(mainIntent);
+        finish();
+    }
+    private void redirectToRPhoneAuth(){
+        Intent mainIntent = new Intent(LoginActivity.this, PhoneAutentification.class);
         startActivity(mainIntent);
         finish();
     }

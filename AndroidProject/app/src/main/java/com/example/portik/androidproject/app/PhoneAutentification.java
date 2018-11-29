@@ -1,5 +1,6 @@
-package com.example.portik.androidproject.feature;
+package com.example.portik.androidproject.app;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,7 +31,6 @@ public class PhoneAutentification extends AppCompatActivity {
     private Button CodeVerify;
     private Button SendCode;
     private Button ResendCode;
-    private Button SignOut;
 
     private String phoneVerificationId;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks varificationCallBack;
@@ -49,15 +49,30 @@ public class PhoneAutentification extends AppCompatActivity {
         CodeVerify = (Button) findViewById(R.id.verifycode);
         SendCode = (Button) findViewById(R.id.sendcode);
         ResendCode = (Button) findViewById(R.id.resendcode);
-        SignOut = (Button) findViewById(R.id.signout);
-
+        SendCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendCode();
+            }
+        });
+        CodeVerify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                verifyCode(view);
+            }
+        });
+        ResendCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resendCode(view);
+            }
+        });
         CodeVerify.setEnabled(false);
         ResendCode.setEnabled(false);
-        SignOut.setEnabled(false);
 
         myAuth = FirebaseAuth.getInstance();
     }
-    public void sendCode(View view){
+    public void sendCode(){
         String phoneNumber = Phone.getText().toString();
         setUpVerificationCallBack();
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
@@ -73,7 +88,6 @@ public class PhoneAutentification extends AppCompatActivity {
         varificationCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential credential) {
-                SignOut.setEnabled(true);
                 ResendCode.setEnabled(false);
                 CodeVerify.setEnabled(false);
                 signInWithPhoneAuthCredential(credential);
@@ -109,10 +123,10 @@ public class PhoneAutentification extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    SignOut.setEnabled(true);
                     ResendCode.setEnabled(false);
                     CodeVerify.setEnabled(false);
                     FirebaseUser user = task.getResult().getUser();
+                    redirectToMain();
                 }
                 else{
                     if(task.getException() instanceof  FirebaseAuthInvalidCredentialsException){
@@ -132,9 +146,9 @@ public class PhoneAutentification extends AppCompatActivity {
                 varificationCallBack,
                 resendToken);
     }
-    public void signOut(View view){
-        myAuth.signOut();
-        SignOut.setEnabled(false);
-        SendCode.setEnabled(true);
+    public void redirectToMain(){
+        Intent mainIntent = new Intent(PhoneAutentification.this, MainActivity.class);
+        startActivity(mainIntent);
+        finish();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.portik.androidproject.feature;
+package com.example.portik.androidproject.app;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private Button registerBtn;
     private Button loginBtn;
     private Button logoutBtn;
-    private Button phoneAuthBtn;
     private FirebaseAuth myAuth;
+    private Button setupProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +27,8 @@ public class MainActivity extends AppCompatActivity {
         registerBtn = (Button) findViewById(R.id.register_btn);
         loginBtn = (Button) findViewById(R.id.login_btn);
         logoutBtn = (Button) findViewById(R.id.logout_btn);
-        phoneAuthBtn = (Button) findViewById(R.id.phoneAuthButton);
-        phoneAuthBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                redirectToRPhoneAuth();
-            }
-        });
+        setupProfile = (Button) findViewById(R.id.setupProfile);
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 logOut();
             }
         });
+        setupProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectToSetupProfile();
+            }
+        });
     }
 
     @Override
@@ -64,11 +65,16 @@ public class MainActivity extends AppCompatActivity {
             registerBtn.setVisibility(View.VISIBLE);
             loginBtn.setVisibility(View.VISIBLE);
             logoutBtn.setVisibility(View.INVISIBLE);
+            setupProfile.setVisibility(View.INVISIBLE);
+
+
         }
         else{
             registerBtn.setVisibility(View.INVISIBLE);
             loginBtn.setVisibility(View.INVISIBLE);
             logoutBtn.setVisibility(View.VISIBLE);
+            setupProfile.setVisibility(View.VISIBLE);
+
 
         }
     }
@@ -88,11 +94,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(mainIntent);
         finish();
     }
-    private void redirectToRPhoneAuth(){
-        Intent mainIntent = new Intent(MainActivity.this, PhoneAutentification.class);
+    private void redirectToSetupProfile(){
+        Intent mainIntent = new Intent(MainActivity.this, SetupActivity.class);
         startActivity(mainIntent);
         finish();
     }
+
     private void logOut(){
       myAuth.signOut();
         redirectToMain();
