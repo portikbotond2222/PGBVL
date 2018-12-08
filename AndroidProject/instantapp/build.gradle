@@ -1,8 +1,0 @@
-apply plugin: 'com.android.instantapp'
-apply plugin: 'com.google.gms.google-services'
-
-dependencies {
-    implementation project(':feature')
-    implementation project(':base')
-    implementation 'com.google.firebase:firebase-auth:16.0.1'
-}
