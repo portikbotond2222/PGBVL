@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -139,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private File createImageFile() throws IOException{
-        String tmp=new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imgFileName="JPEG_"+tmp + " _";
+        String tmp=new SimpleDateFormat("yyyyMMdd_HHmmss",Locale.getDefault()).format(new Date());
+        String imgFileName="IMG_"+tmp + " _";
         File storageDir=getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image=File.createTempFile(
                 imgFileName,
