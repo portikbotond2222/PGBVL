@@ -23,7 +23,8 @@
         <activity
             android:name=".SetupActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-        <activity android:name=".LoginRegisterActivity"></activity>
+        <activity android:name=".LoginRegisterActivity" />
+        <activity android:name=".MyProfile"></activity>
     </application>
 
 </manifest>

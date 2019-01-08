@@ -1,6 +1,7 @@
 package com.example.portik.myapplication5;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,11 +13,15 @@ import android.widget.Toolbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button loginRegBtn;
     private Button LogoutBtn;
     private FirebaseAuth myAuth;
+    private Button profileBtn;
+
 
 
     @Override
@@ -28,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         loginRegBtn = (Button) findViewById(R.id.loginreg_buton);
         LogoutBtn =  (Button) findViewById(R.id.LogoutBtn);
+        profileBtn = (Button) findViewById(R.id.profilesettings);
 
         LogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 redirectToLoginReg();
+            }
+        });
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redirectToProfile();
             }
         });
     }
@@ -77,4 +89,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(mainIntent);
         finish();
     }
+
+    private void redirectToProfile(){
+        Intent mainIntent = new Intent(MainActivity.this, MyProfile.class);
+        startActivity(mainIntent);
+        finish();
+    }
+
 }
