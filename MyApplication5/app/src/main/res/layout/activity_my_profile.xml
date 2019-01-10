@@ -1,62 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.portik.myapplication5.MyProfile">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
 
-    <EditText
-        android:id="@+id/firstnametext"
-        android:layout_width="wrap_content"
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/setupFragmentbutton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="First Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.262" />
-
-    <EditText
-        android:id="@+id/lastnametext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Last Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
-
-    <EditText
-        android:id="@+id/postaltext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPostalAddress"
-        android:text="Adress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        android:text="Setup Profile"
+        android:textSize="20sp" />
 
     <Button
-        android:id="@+id/buttonsave"
-        android:layout_width="wrap_content"
+        android:id="@+id/updateButtonbutton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Profile"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginTop="10dp"
+        android:text="Update Profile"
+        android:textSize="20sp" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/firstnameinfrag"
+            android:layout_width="398dp"
+            android:layout_height="52dp" />
+
+        <TextView
+            android:id="@+id/lastnameinfrag"
+            android:layout_width="398dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="60dp" />
+
+        <TextView
+            android:id="@+id/addresinfrag"
+            android:layout_width="398dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="120dp" />
+    </FrameLayout>
+</LinearLayout>

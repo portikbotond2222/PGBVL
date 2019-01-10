@@ -24,7 +24,7 @@
             android:name=".SetupActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".LoginRegisterActivity" />
-        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".MyProfile" />
     </application>
 
 </manifest>

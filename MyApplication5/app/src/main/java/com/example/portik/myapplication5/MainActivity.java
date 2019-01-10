@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private Button LogoutBtn;
     private FirebaseAuth myAuth;
     private Button profileBtn;
-
+private Button updateBtn;
 
     private Uri imageCaptureUri;
     private ImageView mImageView;
@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         loginRegBtn = (Button) findViewById(R.id.loginreg_buton);
         LogoutBtn =  (Button) findViewById(R.id.LogoutBtn);
         profileBtn = (Button) findViewById(R.id.profilesettings);
+
+
 
         LogoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
