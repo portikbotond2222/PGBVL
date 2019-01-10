@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/setupFragmentbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Setup Profile"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/updateButtonbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Update Profile"
+        android:textSize="20sp" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/firstnameinfrag"
+            android:layout_width="398dp"
+            android:layout_height="52dp" />
+
+        <TextView
+            android:id="@+id/lastnameinfrag"
+            android:layout_width="398dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="60dp" />
+
+        <TextView
+            android:id="@+id/addresinfrag"
+            android:layout_width="398dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="120dp" />
+    </FrameLayout>
+</LinearLayout>
